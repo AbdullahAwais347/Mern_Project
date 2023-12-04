@@ -1,4 +1,6 @@
-function ForgorPassword2() {
+import { Link } from "react-router-dom";
+
+function Otp() {
   return (
     <>
       <div className=" flex bg-off_white bg-auto w-full h-full">
@@ -47,7 +49,7 @@ function ForgorPassword2() {
             />
 
             <button className=" mt-10 mb-8 p-1 bg-black rounded-lg w-36 text-P_white">
-              Submit
+              <Link to="/">Submit</Link>
             </button>
           </form>
         </div>
@@ -56,4 +58,4 @@ function ForgorPassword2() {
   );
 }
 
-export default ForgorPassword2;
+export default Otp;

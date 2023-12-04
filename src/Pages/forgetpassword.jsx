@@ -1,8 +1,8 @@
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import React from "react";
 
 function ForgetPassword() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   return (
     <>
       <div className=" flex bg-off_white bg-auto w-full h-full">
@@ -46,13 +46,8 @@ function ForgetPassword() {
               className=" border-b-2 border-light_black mt-5"
             />
 
-            <button
-              className=" mt-10 mb-8 p-1 bg-black rounded-lg w-36 text-P_white"
-              onClick={() => {
-                navigate("/forgetPassword2");
-              }}
-            >
-              Submit
+            <button className=" mt-10 mb-8 p-1 bg-black rounded-lg w-36 text-P_white">
+              <Link to="/otp">Submit</Link>
             </button>
           </form>
         </div>

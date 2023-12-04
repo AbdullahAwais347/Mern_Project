@@ -1,5 +1,5 @@
-import Navbar from "./Navbar";
-import SideBar from "./sideBar";
+import Navbar from "../Components/Navbar";
+import SideBar from "../Components/sideBar";
 
 function Dashboard() {
   return (
@@ -8,13 +8,13 @@ function Dashboard() {
       <div className=" flex">
         <SideBar></SideBar>
         <div className="m-8">
-          <div className="  flex bg-off_white w-auto h-auto rounded-xl">
-            <div className=" bg-off_white w-1/2 p-2">
+          <div className="  flex  bg-P_white h-auto p-3 rounded-lg shadow-2xl shadow-shadow_color">
+            <div className=" bg-P_white w-1/2 p-2">
               <h1 className=" text-black text-lg font-bold mt-2">
                 Activity Overview
               </h1>
             </div>
-            <div className=" bg-P_white w-1/2 h-auto p-2 m-5">
+            <div className=" bg-P_white w-1/2 h-auto p-2 m-5 rounded-lg shadow-2xl shadow-shadow_color">
               <div className="ml-3">
                 <h1 className=" text-black text-lg font-bold">Sales</h1>
                 <div className="flex">

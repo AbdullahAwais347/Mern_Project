@@ -1,19 +1,22 @@
-import { Routes, Route } from "react-router-dom";
-import LogIn from "./Components/logIn";
-import SignUp from "./Components/signUp";
-import ForgetPassword from "./Components/forgetpassword";
-import Otp from "./Components/otp";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import LogIn from "./Pages/logIn";
+import SignUp from "./Pages/signUp";
+import ForgetPassword from "./Pages/forgetpassword";
+import Otp from "./Pages/otp";
 import Navbar from "./Components/Navbar";
 import SideBar from "./Components/sideBar";
-import Dashboard from "./Components/Dashboard";
+import Dashboard from "./Pages/Dashboard";
 import OrderManagement from "./Components/OrderManagement";
 import InventoryManagement from "./Components/InventoryManagement";
 import Feedback from "./Components/Feedback";
 import Returns from "./Components/Return";
 import Brands from "./Components/Brands";
+import AddProducts from "./Components/AddProducts";
+import PersonalInfo from "./Components/PersonalInfo";
 function App() {
   return (
     <>
+      {/* <PersonalInfo></PersonalInfo> */}
       {/* <Navbar></Navbar>
       <div className=" flex">
         <SideBar></SideBar>
@@ -29,13 +32,15 @@ function App() {
         <Route path="/" element={<LogIn />} />
         <Route path="/signUp" element={<SignUp />} />
         <Route path="/forgetPassword" element={<ForgetPassword />} />
-        <Route path="/forgetPassword2" element={<Otp />} />
+        <Route path="/otp" element={<Otp />} />
         <Route path="/Dashboard" element={<Dashboard />} />
         <Route path="/OrderManagement" element={<OrderManagement />} />
         <Route path="/InventoryManagement" element={<InventoryManagement />} />
         <Route path="/Return" element={<Returns />} />
         <Route path="/Feedback" element={<Feedback />} />
         <Route path="/Brands" element={<Brands />} />
+        <Route path="/AddProducts" element={<AddProducts />} />
+        <Route path="/PersonalInfo" element={<PersonalInfo />} />
       </Routes>
     </>
   );

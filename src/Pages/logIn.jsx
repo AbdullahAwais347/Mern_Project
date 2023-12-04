@@ -1,7 +1,7 @@
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import React from "react";
 function LogIn() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   return (
     <>
       <div className=" flex bg-off_white bg-auto w-full h-full">
@@ -45,29 +45,15 @@ function LogIn() {
               className=" border-b-2 border-light_black mt-5"
             />
             <div className=" cursor-pointer mt-6 flex text-xs text-light_black">
-              <p
-                className=" cursor-pointer mr-12"
-                onClick={() => {
-                  navigate("/forgetPassword");
-                }}
-              >
-                Forget Password?{" "}
+              <p className=" cursor-pointer mr-12">
+                <Link to="/forgetPassword">Forget Password?</Link>
               </p>
-              <p
-                onClick={() => {
-                  navigate("/signUp");
-                }}
-              >
-                Sign Up
+              <p>
+                <Link to="/signUp">Sign Up</Link>
               </p>
             </div>
-            <button
-              className=" mt-10 mb-8 p-1 bg-black rounded-lg w-36 text-P_white"
-              onClick={() => {
-                navigate("/Dashboard");
-              }}
-            >
-              Log in
+            <button className=" mt-10 mb-8 p-1 bg-black rounded-lg w-36 text-P_white">
+              <Link to="/Dashboard">Log in</Link>
             </button>
           </form>
         </div>

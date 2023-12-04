@@ -10,6 +10,7 @@ export default {
       black: "#000000",
       shadow_color: "#00000040",
       dashBoard_font_color: "#00000099",
+      btn_bg: "#00000080",
     },
     extend: {
       dropShadow: {
