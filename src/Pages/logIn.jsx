@@ -1,7 +1,38 @@
 import { Link } from "react-router-dom";
-import React from "react";
-function LogIn() {
-  // const navigate = useNavigate();
+import React, { useState } from "react";
+
+const LogIn = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const onUsernameChange = (username) => {
+    setUsername(username);
+  };
+
+  const onPasswordChange = (password) => {
+    setPassword(password);
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Username:", username);
+    console.log("Password:", password);
+
+    setUsername("");
+    setPassword("");
+    // console.log("Hello");
+  };
+  const login = async () => {
+    const loginRes = await axios.post("http://localhost:3000/auth/login", {
+      username: username,
+      password: password,
+    });
+    if (loginRes.data) {
+      navigate("/Dashboard");
+    } else {
+      alert("incorrect username/password");
+    }
+  };
   return (
     <>
       <div className=" flex bg-off_white bg-auto w-full h-full">
@@ -14,36 +45,35 @@ function LogIn() {
         </div>
         <div className="flex flex-col w-1/2 ml-4 ">
           <form
-            action="#"
-            className="flex flex-col w-80 justify-center items-center ml-6 mr-6 mt-20 h-96 bg-P_white shadow-md shadow-shadow_color "
+            onSubmit={handleSubmit}
+            className="flex flex-col w-80 justify-center items-center ml-6 mr-6 mt-20 h-auto bg-P_white shadow-md shadow-shadow_color "
           >
-            <h1 className=" font-bold text-xl ">Login</h1>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="40"
-              height="4"
-              viewBox="0 0 70 6"
-              fill="none"
-              className="stroke-black
-              "
-            >
-              <path
-                opacity="0.7"
-                d="M0 3L70 3"
-                // stroke="black"
-                stroke-width="5"
-              />
-            </svg>
+            {errorMessage && (
+              <div style={{ color: "red" }} className="mt-6 mr-6 ml-6">
+                {errorMessage}
+              </div>
+            )}
+            <h1 className=" font-bold text-xl mt-12 ">Login</h1>
+
             <input
               type="text"
               placeholder="Username"
+              value={username}
               className=" mt-10 border-b-2 border-light_black text-light_black"
+              onChange={(e) => {
+                void onUsernameChange(e.target.value);
+              }}
             />
             <input
-              type="text"
+              type="password"
               placeholder="Password"
               className=" border-b-2 border-light_black mt-5"
+              value={password}
+              onChange={(e) => {
+                void onPasswordChange(e.target.value);
+              }}
             />
+
             <div className=" cursor-pointer mt-6 flex text-xs text-light_black">
               <p className=" cursor-pointer mr-12">
                 <Link to="/forgetPassword">Forget Password?</Link>
@@ -52,14 +82,22 @@ function LogIn() {
                 <Link to="/signUp">Sign Up</Link>
               </p>
             </div>
-            <button className=" mt-10 mb-8 p-1 bg-black rounded-lg w-36 text-P_white">
-              <Link to="/Dashboard">Log in</Link>
-            </button>
+
+            <Link
+              to="/Dashboard"
+              type="submit"
+              className=" flex justify-center mt-10 mb-10 p-1 bg-black rounded-lg w-36 text-P_white"
+              onClick={() => {
+                void login();
+              }}
+            >
+              Log in
+            </Link>
           </form>
         </div>
       </div>
     </>
   );
-}
+};
 
 export default LogIn;

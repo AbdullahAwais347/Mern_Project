@@ -8,7 +8,7 @@ function PersonalInfo() {
       <div className=" flex">
         <SideBar></SideBar>
 
-        <div className="flex flex-col sm:flex-row m-4 sm:m-8 w-full">
+        <div className="flex flex-col sm:flex-row m-4 sm:m-8 w-3/4">
           <div className="  w-full sm:w-3/4 bg-none h-auto p-3 rounded-lg border-2 border-black ">
             <div className=" flex flex-col w-auto m-3 h-auto p-1 rounded-lg shadow-2xl shadow-light_black">
               <h1 className="text-black text-xl font-bold h-auto mt-3 p-2 ">
